@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('peliculas', 'PeliculasController@mostrarPelicula');
+
+Route::get('/peliculas/{id}', 'PeliculasController@buscarPeliculasId');
+
+Route::get('/peliculas/buscar/{nombre}', 'PeliculasController@buscarPeliculasNombre');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
