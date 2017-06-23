@@ -13,9 +13,11 @@
 
 Route::get('peliculas', 'PeliculasController@mostrarPelicula');
 
+Route::get('/peliculas/buscar', 'PeliculasController@buscarPeliculasNombre');
+
 Route::get('/peliculas/{id}', 'PeliculasController@buscarPeliculasId');
 
-Route::get('/peliculas/buscar/{nombre}', 'PeliculasController@buscarPeliculasNombre');
+Route::get('/actores', 'ActorController@directory');
 
 
 Route::get('/', function () {
