@@ -19,6 +19,11 @@ Route::get('/peliculas/{id}', 'PeliculasController@buscarPeliculasId');
 
 Route::get('/actores', 'ActorController@directory');
 
+Route::get('/agregarPelicula', function(){
+  return view('agregarPelicula');
+});
+
+Route::post('/agregarPelicula/agregar', 'PeliculasController@agregarPelicula');
 
 Route::get('/', function () {
     return view('welcome');

@@ -6,9 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
-  public function buscarPelicula(){
-
-    return $this->title;
-
-  }
+  protected $guarded = [];
 }
