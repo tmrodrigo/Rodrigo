@@ -11,11 +11,15 @@
 |
 */
 
+Route::get('genre', 'GenreController@showGenres');
+
+Route::get('genre/{id}', 'GenreController@show');
+
 Route::get('peliculas', 'PeliculasController@mostrarPelicula');
 
 Route::get('/peliculas/buscar', 'PeliculasController@buscarPeliculasNombre');
 
-Route::get('/peliculas/{id}', 'PeliculasController@buscarPeliculasId');
+Route::get('/pelicula/{id}', 'PeliculasController@buscarPeliculaId');
 
 Route::get('/actores', 'ActorController@directory');
 

@@ -8,11 +8,12 @@ use App\Movie;
 class PeliculasController extends Controller
 {
 
-  public function buscarPeliculasId($id)
+  public function buscarPeliculaId($id)
   {
-
-    return 'La pelicula es: '. $this->peliculas[$id];
-
+    $pelicula = Movie::find($id);
+    return view('pelicula', [
+      'pelicula' => $pelicula
+    ]);
   }
 
   public function buscarPeliculasNombre($nombre)
@@ -20,7 +21,8 @@ class PeliculasController extends Controller
 
   }
 
-  public function mostrarPelicula(){
+  public function mostrarPelicula()
+  {
     return view('peliculas', [
       'arrPeli' => $this->peliculas
     ]);
