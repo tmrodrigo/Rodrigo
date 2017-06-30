@@ -7,12 +7,12 @@
   <body>
     <h2>Las películas son:</h2>
     <ul>
-      @foreach ($generos->movies as $pelicula)
+      @foreach ($arrPeli as $peli)
         <li>
-          <a href="/pelicula/{{$pelicula->id}}">{{$pelicula->title}}</a>
+          <a href="/pelicula/{{$peli->id}}">{{$peli->title}}</a>
         </li>
       @endforeach
     </ul>
-    <p>Género: {{ $generos->name }}</p>
+    {{ $arrPeli->links()}}
   </body>
 </html>

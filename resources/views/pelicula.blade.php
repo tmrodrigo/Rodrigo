@@ -5,10 +5,15 @@
     <title>Genre</title>
   </head>
   <body>
-      <h1>{{ $pelicula->title }}</h1>
-      <p>Rating: {{ $pelicula->rating }}</p>
-      <p>Premios: {{ $pelicula->awards }}</p>
-      <p>Fecha de Estreno: {{ $pelicula->release_date }}</p>
-
+      <h1>{{ $pelis->title }}</h1>
+      <p>Rating: {{ $pelis->rating }}</p>
+      <p>Premios: {{ $pelis->awards }}</p>
+      <p>Fecha de Estreno: {{ $pelis->release_date }}</p>
+      <h1>Y actuaron:</h1>
+      <ul>
+        @foreach ($actors as $actor)
+          <li>{{ $actor->first_name }} {{ $actor->last_name }}</li>
+        @endforeach
+      </ul>
   </body>
 </html>

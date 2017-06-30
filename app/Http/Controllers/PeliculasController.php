@@ -4,27 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Actor;
 
 class PeliculasController extends Controller
 {
 
   public function buscarPeliculaId($id)
   {
-    $pelicula = Movie::find($id);
-    return view('pelicula', [
-      'pelicula' => $pelicula
-    ]);
-  }
 
-  public function buscarPeliculasNombre($nombre)
-  {
+    $pelicula = Movie::find($id);
+    $actorsMovie = $pelicula->actors;
+
+    return view('pelicula', [
+      'pelis' => $pelicula,
+      'actors' => $actorsMovie
+    ]);
 
   }
 
   public function mostrarPelicula()
   {
+    $pelicula = Movie::orderBy('title')->paginate(10);
     return view('peliculas', [
-      'arrPeli' => $this->peliculas
+      'arrPeli' => $pelicula
     ]);
   }
 

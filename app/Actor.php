@@ -12,4 +12,9 @@ class Actor extends Model
 
     return $nombre . " " . $apellido;
   }
+
+  public function movies()
+  {
+    return $this->belongsToMany(Movie::class);
+  }
 }
