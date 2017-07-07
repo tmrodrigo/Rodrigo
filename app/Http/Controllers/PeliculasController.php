@@ -8,6 +8,12 @@ use App\Actor;
 
 class PeliculasController extends Controller
 {
+  public function mostrar($id)
+  {
+    $pelicula = Movie::find($id);
+
+    return $pelicula;
+  }
 
   public function buscarPeliculaId($id)
   {
@@ -50,5 +56,26 @@ class PeliculasController extends Controller
 
     $movie = Movie::create($params);
 
+  }
+
+  public function store(Request $request)
+  {
+    $this->validate($request, [
+      'title' => 'required',
+      'rating' => 'required',
+    ]);
+
+    $movie = Movie::create($request->only(
+      'title',
+      'rating',
+      'awards',
+      'genre_id',
+      'release_date',
+      'poster'
+    ));
+
+    return response([
+      'movie_url' =>'http://localhost:8000/movies/'. $movie->id
+    ], 201);
   }
 }

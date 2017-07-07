@@ -8,9 +8,18 @@ class Movie extends Model
 {
   protected $guarded = [];
 
-  public function movies()
+  protected $hidden = ['genre_id', 'length'];
+
+  public function toJson($options = 0)
   {
-    return $this->hasMany(Movie::class);
+    $this->load('genre', 'actors', 'actors.favoriteMovie');
+
+    return parent::toJson(JSON_PRETTY_PRINT);
+  }
+
+  public function genre()
+  {
+    return $this->belongsTo(Genre::class);
   }
 
   public function mostrarPeli()

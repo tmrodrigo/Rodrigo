@@ -14,4 +14,11 @@ class ActorController extends Controller
         'actores' => $actores
       ]);
     }
+
+    public function mostrarActor($id)
+    {
+      $actor = Actor::find($id);
+
+      return $actor;
+    }
 }

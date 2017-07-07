@@ -15,7 +15,7 @@ class CaidoPorMantenimiento
      */
     public function handle($request, Closure $next)
     {
-        throw new HttpException(503);
+        // throw new HttpException(503);
         return $next($request);
     }
 }
